@@ -1,0 +1,13 @@
+<?php /** @var \Grinet\Magmi2\Block\Adminhtml\Import $block */ ?>
+<p><?= $block->escapeHtml(__('Your Magento connection and media directory are detected automatically.')) ?></p>
+<p><?= $block->escapeHtml(__('Place product files in var/import. Browser imports process up to the selected row limit; use the Magmi CLI for larger files.')) ?></p>
+<form method="post" action="<?= $block->escapeUrl($block->getUrl('magmi2/import/run')) ?>">
+    <?= $block->getBlockHtml('formkey') ?>
+    <fieldset class="admin__fieldset">
+        <div class="admin__field"><label class="admin__field-label" for="magmi-file"><?= $block->escapeHtml(__('Source file')) ?></label><div class="admin__field-control"><select class="admin__control-select" name="file" id="magmi-file" required><option value=""><?= $block->escapeHtml(__('Select a file')) ?></option><?php foreach ($block->getFiles() as $file): ?><option value="<?= $block->escapeHtmlAttr($file) ?>"><?= $block->escapeHtml($file) ?></option><?php endforeach; ?></select></div></div>
+        <div class="admin__field"><label class="admin__field-label" for="magmi-profile"><?= $block->escapeHtml(__('Profile')) ?></label><div class="admin__field-control"><select class="admin__control-select" name="profile" id="magmi-profile"><?php foreach ($block->getProfiles() as $profile): ?><option value="<?= $block->escapeHtmlAttr($profile->getName()) ?>"><?= $block->escapeHtml($profile->getName()) ?></option><?php endforeach; ?></select></div></div>
+        <div class="admin__field"><label class="admin__field-label" for="magmi-mode"><?= $block->escapeHtml(__('Mode')) ?></label><div class="admin__field-control"><select class="admin__control-select" name="mode" id="magmi-mode"><option value="update"><?= $block->escapeHtml(__('Update existing products')) ?></option><option value="create"><?= $block->escapeHtml(__('Create new products')) ?></option><option value="xcreate"><?= $block->escapeHtml(__('Create and update')) ?></option></select></div></div>
+        <div class="admin__field"><label class="admin__field-label" for="magmi-limit"><?= $block->escapeHtml(__('Maximum rows')) ?></label><div class="admin__field-control"><input class="admin__control-text" type="number" id="magmi-limit" name="limit" value="100" min="1" max="1000" required /></div></div>
+    </fieldset>
+    <button type="submit" class="action-primary"><?= $block->escapeHtml(__('Run import')) ?></button>
+</form>

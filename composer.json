@@ -1,0 +1,22 @@
+{
+    "name": "grinet/magmi2-magento",
+    "description": "Magento 2 integration for Magmi: native connection, admin import and CLI",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "require": {
+        "php": ">=8.2",
+        "grinet/magmi2-core": "^0.1@alpha",
+        "magento/framework": "^103.0",
+        "magento/module-backend": "^102.0",
+        "magento/module-catalog": "^104.0",
+        "symfony/console": "^6.4 || ^7.0"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {"Grinet\\Magmi2\\": ""}
+    },
+    "support": {
+        "issues": "https://github.com/grinet/magmi2-magento-module/issues",
+        "source": "https://github.com/grinet/magmi2-magento-module"
+    }
+}
