@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class ImportCommand extends Command
+class ImportCommand extends Command
 {
     public function __construct(private readonly ImportService $importer) { parent::__construct(); }
     protected function configure(): void

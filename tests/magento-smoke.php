@@ -8,9 +8,11 @@ if (!is_file($magento . '/app/bootstrap.php') || !is_file($coreAutoload)) {
 }
 require $coreAutoload;
 require $magento . '/app/bootstrap.php';
-$loader = new \Composer\Autoload\ClassLoader();
-$loader->addPsr4('Grinet\\Magmi2\\', dirname(__DIR__));
-$loader->register();
+if (!class_exists(\Grinet\Magmi2\Model\RuntimeFactory::class)) {
+    $loader = new \Composer\Autoload\ClassLoader();
+    $loader->addPsr4('Grinet\\Magmi2\\', dirname(__DIR__));
+    $loader->register();
+}
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 $om = $bootstrap->getObjectManager();
 $factory = $om->create(\Grinet\Magmi2\Model\RuntimeFactory::class);
