@@ -1,11 +1,12 @@
 {
     "name": "grinet/magmi2-magento",
+    "keywords": ["magento2", "mage-os", "mageos"],
     "description": "Magento 2 integration for Magmi: native connection, admin import and CLI",
     "type": "magento2-module",
     "license": "OSL-3.0",
     "require": {
         "php": ">=8.2",
-        "grinet/magmi2-core": "^0.1@alpha",
+        "grinet/magmi2-core": "^0.1.1@alpha",
         "magento/framework": "^103.0",
         "magento/module-backend": "^102.0",
         "magento/module-catalog": "^104.0",
